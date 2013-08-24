@@ -31,7 +31,7 @@ bool HelloWorld::init()
     Point origin = Director::getInstance()->getVisibleOrigin();
 
     // create and initialize a label
-    LabelTTF* label = LabelTTF::create("Joystick Cocos2D Version 3", "Arial", 12);
+    LabelTTF* label = LabelTTF::create("Joystick Cocos2D-X Version 3", "Arial", 12);
     
     // position the label on the center of the screen
     label->setPosition(Point(origin.x + visibleSize.width/2,
