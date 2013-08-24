@@ -35,6 +35,9 @@
 		3AB7CAE917C8B94F00704805 /* BackgroundGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CAE817C8B94F00704805 /* BackgroundGame.png */; };
 		3AB7CAEC17C8BB9900704805 /* action1Down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CAEA17C8BB9900704805 /* action1Down.png */; };
 		3AB7CAED17C8BB9900704805 /* action1Up.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CAEB17C8BB9900704805 /* action1Up.png */; };
+		3AB7CB2717C8CA9E00704805 /* Orc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CB2517C8CA9E00704805 /* Orc.plist */; };
+		3AB7CB2817C8CA9E00704805 /* Orc.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CB2617C8CA9E00704805 /* Orc.pvr.ccz */; };
+		3AB7CB2B17C8CAE400704805 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB7CB2917C8CAE400704805 /* Player.cpp */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -221,6 +224,10 @@
 		3AB7CAE817C8B94F00704805 /* BackgroundGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundGame.png; sourceTree = "<group>"; };
 		3AB7CAEA17C8BB9900704805 /* action1Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action1Down.png; sourceTree = "<group>"; };
 		3AB7CAEB17C8BB9900704805 /* action1Up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action1Up.png; sourceTree = "<group>"; };
+		3AB7CB2517C8CA9E00704805 /* Orc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Orc.plist; sourceTree = "<group>"; };
+		3AB7CB2617C8CA9E00704805 /* Orc.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Orc.pvr.ccz; sourceTree = "<group>"; };
+		3AB7CB2917C8CAE400704805 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = ../Classes/Player.cpp; sourceTree = "<group>"; };
+		3AB7CB2A17C8CAE400704805 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../Classes/Player.h; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -286,6 +293,8 @@
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				1AFAF8B516D35DE700DB1158 /* HelloWorldScene.cpp */,
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
+				3AB7CB2917C8CAE400704805 /* Player.cpp */,
+				3AB7CB2A17C8CAE400704805 /* Player.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -379,9 +388,19 @@
 			path = ../Classes/SneakyInput;
 			sourceTree = "<group>";
 		};
+		3AB7CB2417C8CA9E00704805 /* orc */ = {
+			isa = PBXGroup;
+			children = (
+				3AB7CB2517C8CA9E00704805 /* Orc.plist */,
+				3AB7CB2617C8CA9E00704805 /* Orc.pvr.ccz */,
+			);
+			path = orc;
+			sourceTree = "<group>";
+		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3AB7CB2417C8CA9E00704805 /* orc */,
 				3AB7CAE817C8B94F00704805 /* BackgroundGame.png */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
@@ -580,6 +599,8 @@
 				3AB7CAE917C8B94F00704805 /* BackgroundGame.png in Resources */,
 				3AB7CAEC17C8BB9900704805 /* action1Down.png in Resources */,
 				3AB7CAED17C8BB9900704805 /* action1Up.png in Resources */,
+				3AB7CB2717C8CA9E00704805 /* Orc.plist in Resources */,
+				3AB7CB2817C8CA9E00704805 /* Orc.pvr.ccz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +620,7 @@
 				3AB7CAE517C8B14700704805 /* SneakyButtonSkinnedBase.cpp in Sources */,
 				3AB7CAE617C8B14700704805 /* SneakyJoystick.cpp in Sources */,
 				3AB7CAE717C8B14700704805 /* SneakyJoystickSkinnedBase.cpp in Sources */,
+				3AB7CB2B17C8CAE400704805 /* Player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,7 +702,7 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv6 armv7 i386";
 			};
@@ -692,8 +714,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -730,7 +752,7 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};

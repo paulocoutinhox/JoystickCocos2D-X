@@ -70,27 +70,55 @@ bool HelloWorld::init()
     addChild(joystickBase);
     
     // add joystick button
-    SneakyButton *action1Button = new SneakyButton();
     SneakyButtonSkinnedBase *action1ButtonBase = SneakyButtonSkinnedBase::create();
-    action1Button->initWithRect(accelButtonDimensions);
+    SneakyButton *button1 = new SneakyButton();
+    button1->initWithRect(accelButtonDimensions);
     action1ButtonBase->setDefaultSprite(CCSprite::create("action1Down.png"));
     action1ButtonBase->setActivatedSprite(CCSprite::create("action1Down.png"));
     action1ButtonBase->setPressSprite(CCSprite::create("action1Up.png"));
-    action1ButtonBase->setButton(action1Button);
+    action1ButtonBase->setButton(button1);
     action1ButtonBase->setPosition(accelButtonPosition);
     action1Button = action1ButtonBase->getButton();
-    action1Button->setIsToggleable(true);
     addChild(action1ButtonBase);
     
+    // create physics
+    b2Vec2 gravity = b2Vec2(0.0f, -10.0f);
+    world = new b2World(gravity);
+    
+    // create edges around the entire screen
+	b2BodyDef groundBodyDef;
+	groundBodyDef.position.Set(0, (66 / PTM_RATIO));
+    
+	b2Body *groundBody = world->CreateBody(&groundBodyDef);
+	b2EdgeShape groundEdge;
+	b2FixtureDef boxShapeDef;
+	boxShapeDef.shape = &groundEdge;
+    
+	// wall definitions
+	groundEdge.Set(b2Vec2(0,0), b2Vec2(visibleSize.width/PTM_RATIO, 0));
+	groundBody->CreateFixture(&boxShapeDef);
+    
+    // add the player moving
+    player = new Player();
+    player->init(world);
+    
+    addChild(player->sprite);
+    
+    scheduleUpdate();
+
     return true;
 }
 
-
-void HelloWorld::menuCloseCallback(Object* pSender)
+void HelloWorld::update(float dt)
 {
-    Director::getInstance()->end();
-
-#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    exit(0);
-#endif
+    if (player)
+    {
+        player->update(dt);
+        player->updateVelocity(leftJoystick->getVelocity());
+        
+        if (action1Button->getIsActive())
+        {
+            player->actionButtonPressed(1);
+        }
+    }
 }
