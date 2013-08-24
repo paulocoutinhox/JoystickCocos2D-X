@@ -23,7 +23,7 @@ I dont know ho to enable mult-touch on version 3 of Cocos2D-X, if you know, make
 Screenshot
 ================
 
-![Screenshot 480x320]("https://github.com/prsolucoes/JoystickCocos2D-X/blob/master/Design/screenshot_480_320.png)
+![Screenshot 480x320](Design/screenshot_480_320.png)
 
 
 Credits
