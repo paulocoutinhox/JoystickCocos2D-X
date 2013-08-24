@@ -13,15 +13,17 @@ Features
 
 3 - Working version for: iOS, OSX and Android
 
-4 - Can you add a new feature? Like a box2d simple crate that answer to events (move with joystick and jump with action button)?
+TODO
+===============
 
+1 - Create a class Player that extends from Sprite (dont need show a real sprite, can be a box) and make it answer to events (move with joystick and jump with action button)
 
+2 - Make the multi-resolution work. I tried it but dont work. In the project i have partial code on AppDelegate.
 
-I dont know ho to enable mult-touch on version 3 of Cocos2D-X, if you know, make a pull request please.
-
+3 - Make the joystick support or enable the multi-touch events. I think that it already have, but i dont know in the version 3 of Cocos2d-X where is the method that enable it.
 
 Screenshot
-================
+===============
 
 ![Screenshot 480x320](Design/screenshot_480_320.png)
 
