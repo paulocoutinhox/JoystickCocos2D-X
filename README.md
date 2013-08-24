@@ -1,4 +1,4 @@
-JoystickCocos2D
+JoystickCocos2D-X
 ===============
 
 Small example to use virtual Joystick with Cocos2D-X 3
