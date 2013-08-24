@@ -28,6 +28,8 @@ TODO
 
 6 - Make the player jump with box2d and move with box2d. His movements will be limited by the ground and the walls. The walls distance can be larger than screen (480x320).
 
+7 - Make a simple menu scene (in separated class) with a button START GAME that change to game scene 
+
 GOAL
 ===============
 
