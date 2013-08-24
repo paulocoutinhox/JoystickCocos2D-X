@@ -2,6 +2,10 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "SneakyInput/SneakyButton.h"
+#include "SneakyInput/SneakyButtonSkinnedBase.h"
+#include "SneakyInput/SneakyJoystick.h"
+#include "SneakyInput/SneakyJoystickSkinnedBase.h"
 
 class HelloWorld : public cocos2d::Layer
 {
@@ -17,6 +21,9 @@ public:
     
     // implement the "static node()" method manually
     CREATE_FUNC(HelloWorld);
+    
+    SneakyJoystick *leftJoystick;
+    SneakyButton *action1Button;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

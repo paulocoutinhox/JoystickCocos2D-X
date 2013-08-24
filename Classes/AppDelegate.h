@@ -3,6 +3,18 @@
 
 #include "cocos2d.h"
 
+typedef struct tagResource
+{
+    cocos2d::Size size;
+    char directory[100];
+} Resource;
+
+static Resource resPhone        =  { cocos2d::Size(480, 320),   "iphone" };
+static Resource resPhoneRetina  =  { cocos2d::Size(960, 640),   "iphonehd" };
+static Resource resTablet       =  { cocos2d::Size(1024, 768),  "ipad"   };
+static Resource resTabletRetina =  { cocos2d::Size(2048, 1536), "ipadhd" };
+static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
+
 /**
 @brief    The cocos2d Application.
 
