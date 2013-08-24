@@ -19,4 +19,16 @@ Features
 
 I dont know ho to enable mult-touch on version 3 of Cocos2D-X, if you know, make a pull request please.
 
+
+Screenshot
+================
+
+(https://github.com/prsolucoes/JoystickCocos2D-X/blob/master/Design/screenshot_480_320.png "Screenshot 480x320")
+
+
+Credits
+================
+
+Colaborated by Paulo Coutinho - paulo(at)prsolucoes(dot)com
+
 Thanks.
