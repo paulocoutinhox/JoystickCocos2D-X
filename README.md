@@ -22,6 +22,25 @@ TODO
 
 3 - Make the joystick support or enable the multi-touch events. I think that it already have, but i dont know in the version 3 of Cocos2d-X where is the method that enable it.
 
+4 - Make the scene have a ground and a wall in both sides to create a limit for player move.
+
+5 - Make a camera that follow the player movement.
+
+6 - Make the player jump with box2d and move with box2d. His movements will be limited by the ground and the walls. The walls distance can be larger than screen (480x320).
+
+GOAL
+===============
+
+Make a real simple game that have a player, a scene that the player can move using box2d to move and jump. 
+
+The scene will have a limit to player movements, a ground and two box on each side to make the player stop walk when reach this walls(box2d boxes).
+
+The camera will follow the player to both sides whe it walk.
+
+We need a parallax effect too in background and some sounds to jump.
+
+With this, anyone can start your project and study the basic concepts.
+
 Screenshot
 ===============
 
