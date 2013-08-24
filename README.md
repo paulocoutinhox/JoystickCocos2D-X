@@ -22,7 +22,7 @@ TODO
 
 3 - Make the joystick support or enable the multi-touch events. I think that it already have, but i dont know in the version 3 of Cocos2d-X where is the method that enable it.
 
-4 - Make the scene have a ground and a wall in both sides to create a limit for player move.
+4 - Make the scene have a ground and a wall in both sides to create a limit for player move (they will be transparent using box2d).
 
 5 - Make a camera that follow the player movement.
 
