@@ -50,6 +50,6 @@ Screenshot
 Credits
 ================
 
-Colaborated by Paulo Coutinho - paulo(at)prsolucoes(dot)com
+Created by Paulo Coutinho - paulo(at)prsolucoes(dot)com
 
 Thanks.
