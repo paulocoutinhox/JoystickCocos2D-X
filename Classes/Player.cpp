@@ -14,7 +14,19 @@ Player::~Player(void)
     body = NULL;
 }
 
-bool Player::init(b2World *world)
+Player* Player::create(cocos2d::Layer *layer, b2World *world)
+{
+    Player *object = new Player();
+    if (object && object->init(layer, world))
+    {
+        object->autorelease();
+        return object;
+    }
+    CC_SAFE_DELETE(object);
+    return NULL;
+}
+
+bool Player::init(Layer *layer, b2World *world)
 {
     // some variables
     Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -22,6 +34,7 @@ bool Player::init(b2World *world)
     
     // node and spite
     batchNode = SpriteBatchNode::create("Orc.pvr.ccz");
+    
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Orc.plist");
     sprite = CCSprite::createWithSpriteFrameName("Orc_move_right0001.png");
     
@@ -81,6 +94,8 @@ bool Player::init(b2World *world)
     // set default state
     setStateDefault();
     changeDirection(direction);
+    
+    batchNode->addChild(sprite);
     
     return true;
 }
@@ -142,7 +157,7 @@ void Player::setStateDefault()
     if (state == 2)
     {
         state = 1;
-        //sprite->runAction(actionStateDefault);
+        sprite->runAction(actionStateDefault);
         
     }
 }
@@ -152,7 +167,7 @@ void Player::setStateMoving()
     if (state == 1)
     {
         state = 2;
-        //sprite->runAction(actionStateMoving);
+        sprite->runAction(actionStateMoving);
     }
 }
 

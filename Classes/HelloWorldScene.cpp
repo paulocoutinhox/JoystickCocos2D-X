@@ -99,10 +99,9 @@ bool HelloWorld::init()
 	groundBody->CreateFixture(&boxShapeDef);
     
     // add the player moving
-    player = new Player();
-    player->init(world);
+    player = Player::create(this, world);
     
-    addChild(player->sprite);
+    addChild(player->batchNode);
     
     scheduleUpdate();
 

@@ -18,6 +18,7 @@ public:
     cocos2d::Animate *animateMoving;
     cocos2d::Animation *animationDefault;
     cocos2d::Animation *animationMoving;
+    cocos2d::SpriteBatchNode *batchNode;
     
     int direction;
     b2Body *body;
@@ -26,7 +27,8 @@ public:
     
     Player();
     virtual ~Player(void);
-    virtual bool init(b2World *world);
+    static Player* create(cocos2d::Layer *layer, b2World *world);
+    virtual bool init(cocos2d::Layer *layer, b2World *world);
     void update(float dt);
     void updateVelocity(cocos2d::Point velocity);
     void move(cocos2d::Point velocity);
@@ -39,10 +41,7 @@ public:
     
     void setBatchNode(cocos2d::SpriteBatchNode *batchNode);
     cocos2d::SpriteBatchNode *getBatchNode();
-    cocos2d::Sprite *getSprite();
-    
-private:
-    cocos2d::SpriteBatchNode *batchNode;
+    cocos2d::Sprite *getSprite();    
     
 };
 
