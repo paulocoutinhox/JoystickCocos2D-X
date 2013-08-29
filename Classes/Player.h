@@ -24,7 +24,8 @@ public:
     b2Body *body;
     b2World *world;
     int state; // 1 = default, 2 = moving
-    
+    cocos2d::Size visibleSize;
+
     Player();
     virtual ~Player(void);
     virtual bool init(cocos2d::Layer *layer, b2World *world);

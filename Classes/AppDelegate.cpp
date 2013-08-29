@@ -17,7 +17,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     EGLView* eglView = EGLView::getInstance();
 
     director->setOpenGLView(eglView);
-
+	
 	// resources setup
     eglView->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
 	
@@ -48,7 +48,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     Scene *scene = HelloWorld::scene();
-
+	
     // run
     director->runWithScene(scene);
 

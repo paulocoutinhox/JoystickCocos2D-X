@@ -19,7 +19,7 @@ Player::~Player(void)
 bool Player::init(Layer *layer, b2World *world)
 {
     // some variables
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
     
     // node and spite
@@ -106,8 +106,22 @@ void Player::update(float dt)
             if (b->GetUserData() != NULL)
             {
                 Player *ballData = (Player *)b->GetUserData();
-                ballData->sprite->setPosition(Point(b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO));
-                ballData->sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
+				cocos2d::Size spriteSize = ballData->getSprite()->getContentSize();
+                ballData->getSprite()->setPosition(Point(b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO));
+				
+				// if orc reach the left wall, stop it here
+				if(ballData->getSprite()->getPositionX() <= spriteSize.width / 2)
+				{	
+					b->SetTransform(b2Vec2((spriteSize.width / 2 + 0.1f) / PTM_RATIO, b->GetPosition().y), 0.0f);
+					ballData->sprite->setPosition(Point((spriteSize.width / 2 + 0.1f), b->GetPosition().y * PTM_RATIO));
+				}
+
+				// if orc reach the right wall, stop it here
+				if(ballData->getSprite()->getPositionX() >= visibleSize.width - (spriteSize.width / 2))
+				{	
+					b->SetTransform(b2Vec2((visibleSize.width - (spriteSize.width / 2) - 0.1f)/ PTM_RATIO, b->GetPosition().y), 0.0f);
+					ballData->sprite->setPosition(Point((visibleSize.width - (spriteSize.width / 2) - 0.1f), b->GetPosition().y * PTM_RATIO));
+				}
             }
         }
     }
