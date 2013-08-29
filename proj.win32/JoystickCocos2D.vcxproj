@@ -133,11 +133,21 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\Player.cpp" />
+    <ClCompile Include="..\Classes\SneakyInput\SneakyButton.cpp" />
+    <ClCompile Include="..\Classes\SneakyInput\SneakyButtonSkinnedBase.cpp" />
+    <ClCompile Include="..\Classes\SneakyInput\SneakyJoystick.cpp" />
+    <ClCompile Include="..\Classes\SneakyInput\SneakyJoystickSkinnedBase.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\Player.h" />
+    <ClInclude Include="..\Classes\SneakyInput\SneakyButton.h" />
+    <ClInclude Include="..\Classes\SneakyInput\SneakyButtonSkinnedBase.h" />
+    <ClInclude Include="..\Classes\SneakyInput\SneakyJoystick.h" />
+    <ClInclude Include="..\Classes\SneakyInput\SneakyJoystickSkinnedBase.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

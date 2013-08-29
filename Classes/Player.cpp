@@ -11,19 +11,9 @@ Player::Player()
 Player::~Player(void)
 {
     Object::~Object();
+	actionStateDefault->release();
+	actionStateMoving->release();
     body = NULL;
-}
-
-Player* Player::create(cocos2d::Layer *layer, b2World *world)
-{
-    Player *object = new Player();
-    if (object && object->init(layer, world))
-    {
-        object->autorelease();
-        return object;
-    }
-    CC_SAFE_DELETE(object);
-    return NULL;
 }
 
 bool Player::init(Layer *layer, b2World *world)
@@ -33,9 +23,9 @@ bool Player::init(Layer *layer, b2World *world)
     Point origin = Director::getInstance()->getVisibleOrigin();
     
     // node and spite
-    batchNode = SpriteBatchNode::create("Orc.pvr.ccz");
+    batchNode = SpriteBatchNode::create("orc/Orc.pvr.ccz");
     
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Orc.plist");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("orc/Orc.plist");
     sprite = CCSprite::createWithSpriteFrameName("Orc_move_right0001.png");
     
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
@@ -55,7 +45,10 @@ bool Player::init(Layer *layer, b2World *world)
     
     animateDefault = CCAnimate::create(animationDefault);
     actionStateDefault = RepeatForever::create(animateDefault);
-    
+    // actionStateDefault will be undefined after this scope. Because of that we need to retain it. 
+	// We have to release it in destructor.
+	actionStateDefault->retain();
+
     // animation for moving state
     animationMoving = Animation::create();
     
@@ -66,12 +59,15 @@ bool Player::init(Layer *layer, b2World *world)
         animationMoving->addSpriteFrame(SpriteFrameCache::getInstance()->getSpriteFrameByName(szImageFileName));
     }
     
-    animationMoving->setDelayPerUnit(0.04);
+    animationMoving->setDelayPerUnit(0.04f);
     animationMoving->setRestoreOriginalFrame(true);
     
     animateMoving = CCAnimate::create(animationMoving);
     actionStateMoving = RepeatForever::create(animateMoving);
-    
+    // actionStateMoving will be undefined after this scope. Because of that we need to retain it. 
+	// We have to release it in destructor.
+	actionStateMoving->retain();
+
     // create physics
     this->world = world;
     b2BodyDef bodyDef;
@@ -157,6 +153,7 @@ void Player::setStateDefault()
     if (state == 2)
     {
         state = 1;
+		sprite->stopAllActions();
         sprite->runAction(actionStateDefault);
         
     }
@@ -167,6 +164,7 @@ void Player::setStateMoving()
     if (state == 1)
     {
         state = 2;
+		sprite->stopAllActions();
         sprite->runAction(actionStateMoving);
     }
 }

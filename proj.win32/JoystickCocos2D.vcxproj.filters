@@ -7,6 +7,9 @@
     <Filter Include="Classes">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\SneakyInput">
+      <UniqueIdentifier>{7e0e6e87-2fc8-4bb4-af84-db22ed431d29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,6 +21,21 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Player.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SneakyInput\SneakyButton.cpp">
+      <Filter>Classes\SneakyInput</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SneakyInput\SneakyButtonSkinnedBase.cpp">
+      <Filter>Classes\SneakyInput</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SneakyInput\SneakyJoystick.cpp">
+      <Filter>Classes\SneakyInput</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SneakyInput\SneakyJoystickSkinnedBase.cpp">
+      <Filter>Classes\SneakyInput</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -28,6 +46,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Player.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SneakyInput\SneakyButton.h">
+      <Filter>Classes\SneakyInput</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SneakyInput\SneakyButtonSkinnedBase.h">
+      <Filter>Classes\SneakyInput</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SneakyInput\SneakyJoystick.h">
+      <Filter>Classes\SneakyInput</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SneakyInput\SneakyJoystickSkinnedBase.h">
+      <Filter>Classes\SneakyInput</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
