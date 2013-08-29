@@ -67,7 +67,7 @@ bool HelloWorld::init()
     joystickBase->setJoystick(joystick);
     joystickBase->setPosition(joystickBasePosition);
     leftJoystick = joystickBase->getJoystick();
-    addChild(joystickBase);
+    addChild(joystickBase, 1);
     
     // add joystick button
     SneakyButtonSkinnedBase *action1ButtonBase = SneakyButtonSkinnedBase::create();
@@ -79,7 +79,7 @@ bool HelloWorld::init()
     action1ButtonBase->setButton(button1);
     action1ButtonBase->setPosition(accelButtonPosition);
     action1Button = action1ButtonBase->getButton();
-    addChild(action1ButtonBase);
+    addChild(action1ButtonBase ,1);
     
     // create physics
     b2Vec2 gravity = b2Vec2(0.0f, -10.0f);
@@ -95,9 +95,9 @@ bool HelloWorld::init()
 	boxShapeDef.shape = &groundEdge;
     
 	// wall definitions
-	groundEdge.Set(b2Vec2(0,0), b2Vec2(visibleSize.width/PTM_RATIO, 0));
+	groundEdge.Set(b2Vec2(-1.0f,0), b2Vec2(visibleSize.width/PTM_RATIO, 0));
 	groundBody->CreateFixture(&boxShapeDef);
-    
+
     // add the player moving
     player = new Player();
 	player->init(this, world);
