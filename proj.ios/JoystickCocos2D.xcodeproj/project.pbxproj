@@ -24,19 +24,13 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		3AB7CABA17C8B04D00704805 /* dpadDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CAA317C8B04D00704805 /* dpadDown.png */; };
-		3AB7CABB17C8B04D00704805 /* dpadUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CAA417C8B04D00704805 /* dpadUp.png */; };
-		3AB7CABE17C8B04D00704805 /* joystickDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CAA717C8B04D00704805 /* joystickDown.png */; };
-		3AB7CABF17C8B04D00704805 /* joystickUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CAA817C8B04D00704805 /* joystickUp.png */; };
+		3AB1A1FA17CF831B00779120 /* joystick in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1A1F817CF831B00779120 /* joystick */; };
+		3AB1A1FB17CF831B00779120 /* orc in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1A1F917CF831B00779120 /* orc */; };
 		3AB7CAE417C8B14700704805 /* SneakyButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB7CADC17C8B14700704805 /* SneakyButton.cpp */; };
 		3AB7CAE517C8B14700704805 /* SneakyButtonSkinnedBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB7CADE17C8B14700704805 /* SneakyButtonSkinnedBase.cpp */; };
 		3AB7CAE617C8B14700704805 /* SneakyJoystick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB7CAE017C8B14700704805 /* SneakyJoystick.cpp */; };
 		3AB7CAE717C8B14700704805 /* SneakyJoystickSkinnedBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB7CAE217C8B14700704805 /* SneakyJoystickSkinnedBase.cpp */; };
 		3AB7CAE917C8B94F00704805 /* BackgroundGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CAE817C8B94F00704805 /* BackgroundGame.png */; };
-		3AB7CAEC17C8BB9900704805 /* action1Down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CAEA17C8BB9900704805 /* action1Down.png */; };
-		3AB7CAED17C8BB9900704805 /* action1Up.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CAEB17C8BB9900704805 /* action1Up.png */; };
-		3AB7CB2717C8CA9E00704805 /* Orc.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CB2517C8CA9E00704805 /* Orc.plist */; };
-		3AB7CB2817C8CA9E00704805 /* Orc.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CB2617C8CA9E00704805 /* Orc.pvr.ccz */; };
 		3AB7CB2B17C8CAE400704805 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB7CB2917C8CAE400704805 /* Player.cpp */; };
 		7855E0E1153FEF240059DD9A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7855E0DF153FEF240059DD9A /* Default.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -209,10 +203,8 @@
 		1D6058910D05DD3D006BFB54 /* JoystickCocos2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoystickCocos2D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3AB7CAA317C8B04D00704805 /* dpadDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dpadDown.png; sourceTree = "<group>"; };
-		3AB7CAA417C8B04D00704805 /* dpadUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dpadUp.png; sourceTree = "<group>"; };
-		3AB7CAA717C8B04D00704805 /* joystickDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystickDown.png; sourceTree = "<group>"; };
-		3AB7CAA817C8B04D00704805 /* joystickUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystickUp.png; sourceTree = "<group>"; };
+		3AB1A1F817CF831B00779120 /* joystick */ = {isa = PBXFileReference; lastKnownFileType = folder; path = joystick; sourceTree = "<group>"; };
+		3AB1A1F917CF831B00779120 /* orc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = orc; sourceTree = "<group>"; };
 		3AB7CADC17C8B14700704805 /* SneakyButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyButton.cpp; sourceTree = "<group>"; };
 		3AB7CADD17C8B14700704805 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
 		3AB7CADE17C8B14700704805 /* SneakyButtonSkinnedBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyButtonSkinnedBase.cpp; sourceTree = "<group>"; };
@@ -222,10 +214,6 @@
 		3AB7CAE217C8B14700704805 /* SneakyJoystickSkinnedBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyJoystickSkinnedBase.cpp; sourceTree = "<group>"; };
 		3AB7CAE317C8B14700704805 /* SneakyJoystickSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystickSkinnedBase.h; sourceTree = "<group>"; };
 		3AB7CAE817C8B94F00704805 /* BackgroundGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundGame.png; sourceTree = "<group>"; };
-		3AB7CAEA17C8BB9900704805 /* action1Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action1Down.png; sourceTree = "<group>"; };
-		3AB7CAEB17C8BB9900704805 /* action1Up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action1Up.png; sourceTree = "<group>"; };
-		3AB7CB2517C8CA9E00704805 /* Orc.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Orc.plist; sourceTree = "<group>"; };
-		3AB7CB2617C8CA9E00704805 /* Orc.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Orc.pvr.ccz; sourceTree = "<group>"; };
 		3AB7CB2917C8CAE400704805 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = ../Classes/Player.cpp; sourceTree = "<group>"; };
 		3AB7CB2A17C8CAE400704805 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../Classes/Player.h; sourceTree = "<group>"; };
 		7855E0DF153FEF240059DD9A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = SOURCE_ROOT; };
@@ -359,19 +347,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3AB7CAA217C8B04D00704805 /* joystick */ = {
-			isa = PBXGroup;
-			children = (
-				3AB7CAEA17C8BB9900704805 /* action1Down.png */,
-				3AB7CAEB17C8BB9900704805 /* action1Up.png */,
-				3AB7CAA317C8B04D00704805 /* dpadDown.png */,
-				3AB7CAA417C8B04D00704805 /* dpadUp.png */,
-				3AB7CAA717C8B04D00704805 /* joystickDown.png */,
-				3AB7CAA817C8B04D00704805 /* joystickUp.png */,
-			);
-			path = joystick;
-			sourceTree = "<group>";
-		};
 		3AB7CADB17C8B14700704805 /* SneakyInput */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,19 +363,11 @@
 			path = ../Classes/SneakyInput;
 			sourceTree = "<group>";
 		};
-		3AB7CB2417C8CA9E00704805 /* orc */ = {
-			isa = PBXGroup;
-			children = (
-				3AB7CB2517C8CA9E00704805 /* Orc.plist */,
-				3AB7CB2617C8CA9E00704805 /* Orc.pvr.ccz */,
-			);
-			path = orc;
-			sourceTree = "<group>";
-		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3AB7CB2417C8CA9E00704805 /* orc */,
+				3AB1A1F817CF831B00779120 /* joystick */,
+				3AB1A1F917CF831B00779120 /* orc */,
 				3AB7CAE817C8B94F00704805 /* BackgroundGame.png */,
 				1AFAF8B916D35E4900DB1158 /* CloseNormal.png */,
 				1AFAF8BA16D35E4900DB1158 /* CloseSelected.png */,
@@ -412,7 +379,6 @@
 				D4EF949F15BD2D9800D803EB /* Icon-144.png */,
 				D4EF949915BD2D8B00D803EB /* Icon-57.png */,
 				D4EF949D15BD2D9600D803EB /* Icon-72.png */,
-				3AB7CAA217C8B04D00704805 /* joystick */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -592,15 +558,9 @@
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
-				3AB7CABA17C8B04D00704805 /* dpadDown.png in Resources */,
-				3AB7CABB17C8B04D00704805 /* dpadUp.png in Resources */,
-				3AB7CABE17C8B04D00704805 /* joystickDown.png in Resources */,
-				3AB7CABF17C8B04D00704805 /* joystickUp.png in Resources */,
 				3AB7CAE917C8B94F00704805 /* BackgroundGame.png in Resources */,
-				3AB7CAEC17C8BB9900704805 /* action1Down.png in Resources */,
-				3AB7CAED17C8BB9900704805 /* action1Up.png in Resources */,
-				3AB7CB2717C8CA9E00704805 /* Orc.plist in Resources */,
-				3AB7CB2817C8CA9E00704805 /* Orc.pvr.ccz in Resources */,
+				3AB1A1FA17CF831B00779120 /* joystick in Resources */,
+				3AB1A1FB17CF831B00779120 /* orc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
