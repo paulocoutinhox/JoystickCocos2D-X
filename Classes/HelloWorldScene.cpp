@@ -62,8 +62,8 @@ bool HelloWorld::init()
     SneakyJoystickSkinnedBase *joystickBase = SneakyJoystickSkinnedBase::create();
     SneakyJoystick *joystick = new SneakyJoystick();
     joystick->initWithRect(joystickBaseDimensions);
-    joystickBase->setBackgroundSprite(CCSprite::create("dpadDown.png"));
-    joystickBase->setThumbSprite(CCSprite::create("joystickDown.png"));
+    joystickBase->setBackgroundSprite(CCSprite::create("joystick/dpadDown.png"));
+    joystickBase->setThumbSprite(CCSprite::create("joystick/joystickDown.png"));
     joystickBase->setJoystick(joystick);
     joystickBase->setPosition(joystickBasePosition);
     leftJoystick = joystickBase->getJoystick();
@@ -73,9 +73,9 @@ bool HelloWorld::init()
     SneakyButtonSkinnedBase *action1ButtonBase = SneakyButtonSkinnedBase::create();
     SneakyButton *button1 = new SneakyButton();
     button1->initWithRect(accelButtonDimensions);
-    action1ButtonBase->setDefaultSprite(CCSprite::create("action1Down.png"));
-    action1ButtonBase->setActivatedSprite(CCSprite::create("action1Down.png"));
-    action1ButtonBase->setPressSprite(CCSprite::create("action1Up.png"));
+    action1ButtonBase->setDefaultSprite(CCSprite::create("joystick/action1Down.png"));
+    action1ButtonBase->setActivatedSprite(CCSprite::create("joystick/action1Down.png"));
+    action1ButtonBase->setPressSprite(CCSprite::create("joystick/action1Up.png"));
     action1ButtonBase->setButton(button1);
     action1ButtonBase->setPosition(accelButtonPosition);
     action1Button = action1ButtonBase->getButton();
@@ -99,7 +99,8 @@ bool HelloWorld::init()
 	groundBody->CreateFixture(&boxShapeDef);
     
     // add the player moving
-    player = Player::create(this, world);
+    player = new Player();
+	player->init(this, world);
     
     addChild(player->batchNode);
     

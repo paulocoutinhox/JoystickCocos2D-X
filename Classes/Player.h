@@ -27,7 +27,6 @@ public:
     
     Player();
     virtual ~Player(void);
-    static Player* create(cocos2d::Layer *layer, b2World *world);
     virtual bool init(cocos2d::Layer *layer, b2World *world);
     void update(float dt);
     void updateVelocity(cocos2d::Point velocity);
