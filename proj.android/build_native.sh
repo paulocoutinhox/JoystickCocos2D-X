@@ -1,3 +1,4 @@
+NDK_ROOT=~/android-ndk-r8e
 APPNAME="JoystickCocos2D"
 
 # options

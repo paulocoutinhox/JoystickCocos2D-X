@@ -132,22 +132,28 @@ xcopy /Y /Q "$(ProjectDir)..\..\..\external\libwebsockets\win32\lib\*.*" "$(OutD
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
-    <ClCompile Include="..\Classes\Player.cpp" />
+    <ClCompile Include="..\Classes\ContactListener.cpp" />
+    <ClCompile Include="..\Classes\entities\Entity.cpp" />
+    <ClCompile Include="..\Classes\entities\Player.cpp" />
     <ClCompile Include="..\Classes\SneakyInput\SneakyButton.cpp" />
     <ClCompile Include="..\Classes\SneakyInput\SneakyButtonSkinnedBase.cpp" />
     <ClCompile Include="..\Classes\SneakyInput\SneakyJoystick.cpp" />
     <ClCompile Include="..\Classes\SneakyInput\SneakyJoystickSkinnedBase.cpp" />
+    <ClCompile Include="..\Classes\Stages\StageScene.cpp" />
+    <ClCompile Include="..\Classes\Stages\StageScene1.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\HelloWorldScene.h" />
-    <ClInclude Include="..\Classes\Player.h" />
+    <ClInclude Include="..\Classes\ContactListener.h" />
+    <ClInclude Include="..\Classes\entities\Entity.h" />
+    <ClInclude Include="..\Classes\entities\Player.h" />
     <ClInclude Include="..\Classes\SneakyInput\SneakyButton.h" />
     <ClInclude Include="..\Classes\SneakyInput\SneakyButtonSkinnedBase.h" />
     <ClInclude Include="..\Classes\SneakyInput\SneakyJoystick.h" />
     <ClInclude Include="..\Classes\SneakyInput\SneakyJoystickSkinnedBase.h" />
+    <ClInclude Include="..\Classes\Stages\StageScene.h" />
+    <ClInclude Include="..\Classes\Stages\StageScene1.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

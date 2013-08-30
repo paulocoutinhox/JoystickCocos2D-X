@@ -10,18 +10,18 @@
     <Filter Include="Classes\SneakyInput">
       <UniqueIdentifier>{7e0e6e87-2fc8-4bb4-af84-db22ed431d29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Classes\Stages">
+      <UniqueIdentifier>{d8c96ba3-1e54-4f6b-9ba5-12452d274750}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\Entity">
+      <UniqueIdentifier>{ee28f62d-db2e-40b4-90c8-c921ba225028}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\Player.cpp">
       <Filter>Classes</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\SneakyInput\SneakyButton.cpp">
@@ -36,18 +36,27 @@
     <ClCompile Include="..\Classes\SneakyInput\SneakyJoystickSkinnedBase.cpp">
       <Filter>Classes\SneakyInput</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\ContactListener.cpp">
+      <Filter>Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Stages\StageScene.cpp">
+      <Filter>Classes\Stages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Stages\StageScene1.cpp">
+      <Filter>Classes\Stages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\entities\Entity.cpp">
+      <Filter>Classes\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\entities\Player.cpp">
+      <Filter>Classes\Entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Player.h">
       <Filter>Classes</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\SneakyInput\SneakyButton.h">
@@ -61,6 +70,21 @@
     </ClInclude>
     <ClInclude Include="..\Classes\SneakyInput\SneakyJoystickSkinnedBase.h">
       <Filter>Classes\SneakyInput</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ContactListener.h">
+      <Filter>Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Stages\StageScene1.h">
+      <Filter>Classes\Stages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Stages\StageScene.h">
+      <Filter>Classes\Stages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\entities\Entity.h">
+      <Filter>Classes\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\entities\Player.h">
+      <Filter>Classes\Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

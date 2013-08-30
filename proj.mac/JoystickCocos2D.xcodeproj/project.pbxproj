@@ -26,18 +26,18 @@
 		1AFAF8C416D3884900DB1158 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C116D3884900DB1158 /* CloseSelected.png */; };
 		1AFAF8C516D3884900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C216D3884900DB1158 /* HelloWorld.png */; };
 		1AFAF8CA16D3886000DB1158 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */; };
-		1AFAF8CB16D3886000DB1158 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C816D3886000DB1158 /* HelloWorldScene.cpp */; };
+		3A5883F717D01F8E00577F80 /* ContactListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5883EB17D01F8E00577F80 /* ContactListener.cpp */; };
+		3A5883F817D01F8E00577F80 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5883EE17D01F8E00577F80 /* Entity.cpp */; };
+		3A5883F917D01F8E00577F80 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5883F017D01F8E00577F80 /* Player.cpp */; };
+		3A5883FA17D01F8E00577F80 /* StageScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5883F317D01F8E00577F80 /* StageScene.cpp */; };
+		3A5883FB17D01F8E00577F80 /* StageScene1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5883F517D01F8E00577F80 /* StageScene1.cpp */; };
+		3A5883FE17D01FB500577F80 /* joystick in Resources */ = {isa = PBXBuildFile; fileRef = 3A5883FC17D01FB500577F80 /* joystick */; };
+		3A5883FF17D01FB500577F80 /* orc in Resources */ = {isa = PBXBuildFile; fileRef = 3A5883FD17D01FB500577F80 /* orc */; };
 		3AB7CAF817C8BD5A00704805 /* SneakyButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB7CAF017C8BD5A00704805 /* SneakyButton.cpp */; };
 		3AB7CAF917C8BD5A00704805 /* SneakyButtonSkinnedBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB7CAF217C8BD5A00704805 /* SneakyButtonSkinnedBase.cpp */; };
 		3AB7CAFA17C8BD5A00704805 /* SneakyJoystick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB7CAF417C8BD5A00704805 /* SneakyJoystick.cpp */; };
 		3AB7CAFB17C8BD5A00704805 /* SneakyJoystickSkinnedBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AB7CAF617C8BD5A00704805 /* SneakyJoystickSkinnedBase.cpp */; };
 		3AB7CB0F17C8BD6200704805 /* BackgroundGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CB0717C8BD6200704805 /* BackgroundGame.png */; };
-		3AB7CB1017C8BD6200704805 /* action1Down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CB0917C8BD6200704805 /* action1Down.png */; };
-		3AB7CB1117C8BD6200704805 /* action1Up.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CB0A17C8BD6200704805 /* action1Up.png */; };
-		3AB7CB1217C8BD6200704805 /* dpadDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CB0B17C8BD6200704805 /* dpadDown.png */; };
-		3AB7CB1317C8BD6200704805 /* dpadUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CB0C17C8BD6200704805 /* dpadUp.png */; };
-		3AB7CB1417C8BD6200704805 /* joystickDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CB0D17C8BD6200704805 /* joystickDown.png */; };
-		3AB7CB1517C8BD6200704805 /* joystickUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AB7CB0E17C8BD6200704805 /* joystickUp.png */; };
 		41BC70E415BF81A5006A0A6C /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 41BC70DA15BF81A5006A0A6C /* AppController.mm */; };
 		41BC70E515BF81A5006A0A6C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41BC70DC15BF81A5006A0A6C /* InfoPlist.strings */; };
 		41BC70E615BF81A5006A0A6C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41BC70DE15BF81A5006A0A6C /* MainMenu.xib */; };
@@ -198,9 +198,19 @@
 		1AFAF8C216D3884900DB1158 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
 		1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		1AFAF8C716D3886000DB1158 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
-		1AFAF8C816D3886000DB1158 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = ../Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
-		1AFAF8C916D3886000DB1158 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = ../Classes/HelloWorldScene.h; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* JoystickCocos2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoystickCocos2D.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A5883EB17D01F8E00577F80 /* ContactListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContactListener.cpp; path = ../Classes/ContactListener.cpp; sourceTree = "<group>"; };
+		3A5883EC17D01F8E00577F80 /* ContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactListener.h; path = ../Classes/ContactListener.h; sourceTree = "<group>"; };
+		3A5883EE17D01F8E00577F80 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		3A5883EF17D01F8E00577F80 /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		3A5883F017D01F8E00577F80 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		3A5883F117D01F8E00577F80 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		3A5883F317D01F8E00577F80 /* StageScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StageScene.cpp; sourceTree = "<group>"; };
+		3A5883F417D01F8E00577F80 /* StageScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene.h; sourceTree = "<group>"; };
+		3A5883F517D01F8E00577F80 /* StageScene1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StageScene1.cpp; sourceTree = "<group>"; };
+		3A5883F617D01F8E00577F80 /* StageScene1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StageScene1.h; sourceTree = "<group>"; };
+		3A5883FC17D01FB500577F80 /* joystick */ = {isa = PBXFileReference; lastKnownFileType = folder; path = joystick; sourceTree = "<group>"; };
+		3A5883FD17D01FB500577F80 /* orc */ = {isa = PBXFileReference; lastKnownFileType = folder; path = orc; sourceTree = "<group>"; };
 		3AB7CAF017C8BD5A00704805 /* SneakyButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyButton.cpp; sourceTree = "<group>"; };
 		3AB7CAF117C8BD5A00704805 /* SneakyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyButton.h; sourceTree = "<group>"; };
 		3AB7CAF217C8BD5A00704805 /* SneakyButtonSkinnedBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyButtonSkinnedBase.cpp; sourceTree = "<group>"; };
@@ -210,12 +220,6 @@
 		3AB7CAF617C8BD5A00704805 /* SneakyJoystickSkinnedBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SneakyJoystickSkinnedBase.cpp; sourceTree = "<group>"; };
 		3AB7CAF717C8BD5A00704805 /* SneakyJoystickSkinnedBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SneakyJoystickSkinnedBase.h; sourceTree = "<group>"; };
 		3AB7CB0717C8BD6200704805 /* BackgroundGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundGame.png; sourceTree = "<group>"; };
-		3AB7CB0917C8BD6200704805 /* action1Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action1Down.png; sourceTree = "<group>"; };
-		3AB7CB0A17C8BD6200704805 /* action1Up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = action1Up.png; sourceTree = "<group>"; };
-		3AB7CB0B17C8BD6200704805 /* dpadDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dpadDown.png; sourceTree = "<group>"; };
-		3AB7CB0C17C8BD6200704805 /* dpadUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dpadUp.png; sourceTree = "<group>"; };
-		3AB7CB0D17C8BD6200704805 /* joystickDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystickDown.png; sourceTree = "<group>"; };
-		3AB7CB0E17C8BD6200704805 /* joystickUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joystickUp.png; sourceTree = "<group>"; };
 		41BC70D915BF81A5006A0A6C /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = SOURCE_ROOT; };
 		41BC70DA15BF81A5006A0A6C /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = SOURCE_ROOT; };
 		41BC70DD15BF81A5006A0A6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -255,11 +259,13 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3AB7CAEF17C8BD5A00704805 /* SneakyInput */,
 				1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */,
 				1AFAF8C716D3886000DB1158 /* AppDelegate.h */,
-				1AFAF8C816D3886000DB1158 /* HelloWorldScene.cpp */,
-				1AFAF8C916D3886000DB1158 /* HelloWorldScene.h */,
+				3A5883EB17D01F8E00577F80 /* ContactListener.cpp */,
+				3A5883EC17D01F8E00577F80 /* ContactListener.h */,
+				3A5883ED17D01F8E00577F80 /* Entities */,
+				3AB7CAEF17C8BD5A00704805 /* SneakyInput */,
+				3A5883F217D01F8E00577F80 /* Stages */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -324,6 +330,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3A5883ED17D01F8E00577F80 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				3A5883EE17D01F8E00577F80 /* Entity.cpp */,
+				3A5883EF17D01F8E00577F80 /* Entity.h */,
+				3A5883F017D01F8E00577F80 /* Player.cpp */,
+				3A5883F117D01F8E00577F80 /* Player.h */,
+			);
+			name = Entities;
+			path = ../Classes/Entities;
+			sourceTree = "<group>";
+		};
+		3A5883F217D01F8E00577F80 /* Stages */ = {
+			isa = PBXGroup;
+			children = (
+				3A5883F317D01F8E00577F80 /* StageScene.cpp */,
+				3A5883F417D01F8E00577F80 /* StageScene.h */,
+				3A5883F517D01F8E00577F80 /* StageScene1.cpp */,
+				3A5883F617D01F8E00577F80 /* StageScene1.h */,
+			);
+			name = Stages;
+			path = ../Classes/Stages;
+			sourceTree = "<group>";
+		};
 		3AB7CAEF17C8BD5A00704805 /* SneakyInput */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,19 +368,6 @@
 			);
 			name = SneakyInput;
 			path = ../Classes/SneakyInput;
-			sourceTree = "<group>";
-		};
-		3AB7CB0817C8BD6200704805 /* joystick */ = {
-			isa = PBXGroup;
-			children = (
-				3AB7CB0917C8BD6200704805 /* action1Down.png */,
-				3AB7CB0A17C8BD6200704805 /* action1Up.png */,
-				3AB7CB0B17C8BD6200704805 /* dpadDown.png */,
-				3AB7CB0C17C8BD6200704805 /* dpadUp.png */,
-				3AB7CB0D17C8BD6200704805 /* joystickDown.png */,
-				3AB7CB0E17C8BD6200704805 /* joystickUp.png */,
-			);
-			path = joystick;
 			sourceTree = "<group>";
 		};
 		41BC70D815BF818D006A0A6C /* mac */ = {
@@ -380,11 +397,12 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3A5883FC17D01FB500577F80 /* joystick */,
+				3A5883FD17D01FB500577F80 /* orc */,
 				3AB7CB0717C8BD6200704805 /* BackgroundGame.png */,
 				1AFAF8C016D3884900DB1158 /* CloseNormal.png */,
 				1AFAF8C116D3884900DB1158 /* CloseSelected.png */,
 				1AFAF8C216D3884900DB1158 /* HelloWorld.png */,
-				3AB7CB0817C8BD6200704805 /* joystick */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -562,12 +580,8 @@
 				1AFAF8C416D3884900DB1158 /* CloseSelected.png in Resources */,
 				1AFAF8C516D3884900DB1158 /* HelloWorld.png in Resources */,
 				3AB7CB0F17C8BD6200704805 /* BackgroundGame.png in Resources */,
-				3AB7CB1017C8BD6200704805 /* action1Down.png in Resources */,
-				3AB7CB1117C8BD6200704805 /* action1Up.png in Resources */,
-				3AB7CB1217C8BD6200704805 /* dpadDown.png in Resources */,
-				3AB7CB1317C8BD6200704805 /* dpadUp.png in Resources */,
-				3AB7CB1417C8BD6200704805 /* joystickDown.png in Resources */,
-				3AB7CB1517C8BD6200704805 /* joystickUp.png in Resources */,
+				3A5883FE17D01FB500577F80 /* joystick in Resources */,
+				3A5883FF17D01FB500577F80 /* orc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,11 +595,15 @@
 				41BC70E415BF81A5006A0A6C /* AppController.mm in Sources */,
 				41BC70E815BF81A5006A0A6C /* main.m in Sources */,
 				1AFAF8CA16D3886000DB1158 /* AppDelegate.cpp in Sources */,
-				1AFAF8CB16D3886000DB1158 /* HelloWorldScene.cpp in Sources */,
 				3AB7CAF817C8BD5A00704805 /* SneakyButton.cpp in Sources */,
 				3AB7CAF917C8BD5A00704805 /* SneakyButtonSkinnedBase.cpp in Sources */,
 				3AB7CAFA17C8BD5A00704805 /* SneakyJoystick.cpp in Sources */,
 				3AB7CAFB17C8BD5A00704805 /* SneakyJoystickSkinnedBase.cpp in Sources */,
+				3A5883F717D01F8E00577F80 /* ContactListener.cpp in Sources */,
+				3A5883F817D01F8E00577F80 /* Entity.cpp in Sources */,
+				3A5883F917D01F8E00577F80 /* Player.cpp in Sources */,
+				3A5883FA17D01F8E00577F80 /* StageScene.cpp in Sources */,
+				3A5883FB17D01F8E00577F80 /* StageScene1.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
