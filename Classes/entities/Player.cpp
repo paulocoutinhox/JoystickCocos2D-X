@@ -10,8 +10,7 @@ Player::Player()
 
 Player::~Player(void)
 {
-    Object::~Object();
-	actionStateDefault->release();
+    actionStateDefault->release();
 	actionStateMoving->release();
     body = NULL;
 }
@@ -45,9 +44,7 @@ bool Player::init(Layer *layer, b2World *world)
     
     animateDefault = CCAnimate::create(animationDefault);
     actionStateDefault = RepeatForever::create(animateDefault);
-    // actionStateDefault will be undefined after this scope. Because of that we need to retain it. 
-	// We have to release it in destructor.
-	actionStateDefault->retain();
+    actionStateDefault->retain();
 
     // animation for moving state
     animationMoving = Animation::create();
@@ -64,9 +61,7 @@ bool Player::init(Layer *layer, b2World *world)
     
     animateMoving = CCAnimate::create(animationMoving);
     actionStateMoving = RepeatForever::create(animateMoving);
-    // actionStateMoving will be undefined after this scope. Because of that we need to retain it. 
-	// We have to release it in destructor.
-	actionStateMoving->retain();
+    actionStateMoving->retain();
 
     // create physics
     this->world = world;
@@ -100,14 +95,13 @@ void Player::update(float dt)
 {
     if (world)
     {
-        world->Step(dt, 10, 10);
         for(b2Body *b = world->GetBodyList(); b; b=b->GetNext())
         {
             if (b->GetUserData() != NULL)
             {
-                Player *ballData = (Player *)b->GetUserData();
-                ballData->sprite->setPosition(Point(b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO));
-                ballData->sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
+                Player *userData = (Player *)b->GetUserData();
+                userData->sprite->setPosition(Point(b->GetPosition().x * PTM_RATIO, b->GetPosition().y * PTM_RATIO));
+                userData->sprite->setRotation(-1 * CC_RADIANS_TO_DEGREES(b->GetAngle()));
             }
         }
     }
@@ -209,17 +203,7 @@ void Player::changeDirection(int direction)
     }
 }
 
-void Player::setBatchNode(SpriteBatchNode *batchNode)
+int Player::getTag()
 {
-    this->batchNode = batchNode;
-}
-
-SpriteBatchNode *Player::getBatchNode()
-{
-    return batchNode;
-}
-
-cocos2d::Sprite *Player::getSprite()
-{
-    return sprite;
+    return Entity::TAG_PLAYER;
 }

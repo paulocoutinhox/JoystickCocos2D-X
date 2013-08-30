@@ -1,28 +1,18 @@
-#include "HelloWorldScene.h"
+#include "StageScene.h"
 
 USING_NS_CC;
 
-Scene* HelloWorld::scene()
+Scene* StageScene::scene()
 {
-    // 'scene' is an autorelease object
     Scene *scene = Scene::create();
-    
-    // 'layer' is an autorelease object
-    HelloWorld *layer = HelloWorld::create();
-
-    // add layer as a child to scene
+    StageScene *layer = StageScene::create();
     scene->addChild(layer);
-
-    // return the scene
     return scene;
 }
 
-// on "init" you need to initialize your instance
-bool HelloWorld::init()
+bool StageScene::init()
 {
-    //////////////////////////////
-    // 1. super init first
-    if ( !Layer::init() )
+    if (!Layer::init())
     {
         return false;
     }
@@ -30,23 +20,17 @@ bool HelloWorld::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
 
-    // create and initialize a label
+    // create bottom label
     LabelTTF* label = LabelTTF::create("Joystick Cocos2D-X Version 3", "Arial", 12);
     
-    // position the label on the center of the screen
     label->setPosition(Point(origin.x + visibleSize.width/2,
                             origin.y + label->getContentSize().height));
 
-    // add the label as a child to this layer
     this->addChild(label, 1);
 
-    // add "HelloWorld" splash screen"
+    // add game background
     Sprite* sprite = Sprite::create("BackgroundGame.png");
-
-    // position the sprite on the center of the screen
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     
     // add joystick
@@ -82,35 +66,25 @@ bool HelloWorld::init()
     addChild(action1ButtonBase);
     
     // create physics
-    b2Vec2 gravity = b2Vec2(0.0f, -10.0f);
-    world = new b2World(gravity);
+    createPhysics();
     
-    // create edges around the entire screen
-	b2BodyDef groundBodyDef;
-	groundBodyDef.position.Set(0, (66 / PTM_RATIO));
-    
-	b2Body *groundBody = world->CreateBody(&groundBodyDef);
-	b2EdgeShape groundEdge;
-	b2FixtureDef boxShapeDef;
-	boxShapeDef.shape = &groundEdge;
-    
-	// wall definitions
-	groundEdge.Set(b2Vec2(0,0), b2Vec2(visibleSize.width/PTM_RATIO, 0));
-	groundBody->CreateFixture(&boxShapeDef);
-    
-    // add the player moving
+    // add the player
     player = new Player();
-	player->init(this, world);
+	player->init(this, world);    
+    addChild(player->getBatchNode());
     
-    addChild(player->batchNode);
-    
+    // rest of framework init process
     scheduleUpdate();
 
     return true;
 }
 
-void HelloWorld::update(float dt)
+void StageScene::update(float dt)
 {
+    // update the physics
+    updatePhysics(dt);
+
+    // update the player
     if (player)
     {
         player->update(dt);
@@ -121,4 +95,64 @@ void HelloWorld::update(float dt)
             player->actionButtonPressed(1);
         }
     }
+
+    // update collisions
+    std::vector<ContactData>::iterator pos;
+    for(pos = contactListener->_contacts.begin(); pos != contactListener->_contacts.end(); ++pos)
+    {
+        ContactData contact = *pos;
+
+        // get the box2d bodies for each object
+        b2Body *bodyA = contact.fixtureA->GetBody();
+        b2Body *bodyB = contact.fixtureB->GetBody();
+
+        if (bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL)
+        {
+            Entity *entityA = (Entity*)bodyA->GetUserData();
+            Entity *entityB = (Entity*)bodyB->GetUserData();
+
+            int iTagA = entityA->getTag();
+            int iTagB = entityB->getTag();
+
+            if (iTagA == Entity::TAG_PLAYER)
+            {
+
+            }
+            else if (iTagB == Entity::TAG_PLAYER)
+            {
+
+            }
+        }
+    }
+}
+
+void StageScene::updatePhysics(float dt)
+{
+    world->Step(dt, 10, 10);
+}
+
+void StageScene::createPhysics()
+{
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+
+    // world
+    b2Vec2 gravity = b2Vec2(0.0f, -10.0f);
+    world = new b2World(gravity);
+
+    // contact listener
+    contactListener = new ContactListener();
+    world->SetContactListener(contactListener);
+
+    // create edges around the entire screen
+    b2BodyDef groundBodyDef;
+    groundBodyDef.position.Set(0, (66 / PTM_RATIO));
+
+    b2Body *groundBody = world->CreateBody(&groundBodyDef);
+    b2EdgeShape groundEdge;
+    b2FixtureDef boxShapeDef;
+    boxShapeDef.shape = &groundEdge;
+
+    // wall definitions
+    groundEdge.Set(b2Vec2(0,0), b2Vec2(visibleSize.width/PTM_RATIO, 0));
+    groundBody->CreateFixture(&boxShapeDef);
 }
