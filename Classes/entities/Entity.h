@@ -38,7 +38,7 @@ protected:
     int direction;
     b2Body *body;
     b2World *world;
-    int state; // 1 = default, 2 = moving
+    int state; // 1 = default, 2 = moving, 3 = jumping
 
 };
 

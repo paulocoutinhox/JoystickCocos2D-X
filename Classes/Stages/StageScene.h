@@ -18,8 +18,8 @@ public:
     virtual bool init();
     static cocos2d::Scene* scene();
     void update(float dt);
-    
-    CREATE_FUNC(StageScene);
+    void setHUDLayer(Layer *layer);
+    static StageScene *createWithHUD(Layer *hudLayer);
 
 private:
 
@@ -28,6 +28,7 @@ private:
     b2World *world;
     SneakyJoystick *leftJoystick;
     SneakyButton *action1Button;
+    cocos2d::Layer *hudLayer;
 
     void updatePhysics(float dt);
     void createPhysics();

@@ -5,9 +5,32 @@ USING_NS_CC;
 Scene* StageScene::scene()
 {
     Scene *scene = Scene::create();
-    StageScene *layer = StageScene::create();
-    scene->addChild(layer);
+
+    Layer *hudLayer = Layer::create();
+    scene->addChild(hudLayer, 1);
+
+    StageScene *layer = StageScene::createWithHUD(hudLayer);
+    scene->addChild(layer, 0);
+    
     return scene;
+}
+
+StageScene *StageScene::createWithHUD(Layer *hudLayer)
+{
+    StageScene *object = new StageScene();
+    object->setHUDLayer(hudLayer);
+    
+    if (object && object->init())
+    {
+        object->autorelease();
+        return object;
+    }
+    else
+    {
+        delete object;
+        object = NULL;
+        return NULL;
+    }
 }
 
 bool StageScene::init()
@@ -19,19 +42,19 @@ bool StageScene::init()
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
-
+    
     // create bottom label
     LabelTTF* label = LabelTTF::create("Joystick Cocos2D-X Version 3", "Arial", 12);
     
     label->setPosition(Point(origin.x + visibleSize.width/2,
                             origin.y + label->getContentSize().height));
 
-    this->addChild(label, 1);
+    hudLayer->addChild(label, 1);
 
     // add game background
     Sprite* sprite = Sprite::create("BackgroundGame.png");
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    this->addChild(sprite, 0);
+    addChild(sprite, 0);
     
     // add joystick
     int joystickOffset = 10;
@@ -51,7 +74,7 @@ bool StageScene::init()
     joystickBase->setJoystick(joystick);
     joystickBase->setPosition(joystickBasePosition);
     leftJoystick = joystickBase->getJoystick();
-    addChild(joystickBase);
+    hudLayer->addChild(joystickBase);
     
     // add joystick button
     SneakyButtonSkinnedBase *action1ButtonBase = SneakyButtonSkinnedBase::create();
@@ -63,7 +86,7 @@ bool StageScene::init()
     action1ButtonBase->setButton(button1);
     action1ButtonBase->setPosition(accelButtonPosition);
     action1Button = action1ButtonBase->getButton();
-    addChild(action1ButtonBase);
+    hudLayer->addChild(action1ButtonBase);
     
     // create physics
     createPhysics();
@@ -72,6 +95,9 @@ bool StageScene::init()
     player = new Player();
 	player->init(this, world);    
     addChild(player->getBatchNode());
+    
+    // camera follow the player
+    runAction(Follow::create(player->getSprite()));
     
     // rest of framework init process
     scheduleUpdate();
@@ -155,4 +181,9 @@ void StageScene::createPhysics()
     // wall definitions
     groundEdge.Set(b2Vec2(0,0), b2Vec2(visibleSize.width/PTM_RATIO, 0));
     groundBody->CreateFixture(&boxShapeDef);
+}
+
+void StageScene::setHUDLayer(Layer *layer)
+{
+    hudLayer = layer;
 }
