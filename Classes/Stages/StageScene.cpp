@@ -52,9 +52,9 @@ bool StageScene::init()
     hudLayer->addChild(label, 1);
 
     // add game background
-    Sprite* sprite = Sprite::create("BackgroundGame.png");
-    sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    addChild(sprite, 0);
+    Sprite* backgroundSprite = Sprite::create("BackgroundGame.png");
+    backgroundSprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    addChild(backgroundSprite, 0);
     
     // add joystick
     int joystickOffset = 10;
@@ -97,7 +97,7 @@ bool StageScene::init()
     addChild(player->getBatchNode());
     
     // camera follow the player
-    runAction(Follow::create(player->getSprite()));
+    runAction(Follow::create(player->getSprite(), Rect(0, 0, backgroundSprite->getContentSize().width, backgroundSprite->getContentSize().height)));
     
     // rest of framework init process
     scheduleUpdate();
@@ -169,18 +169,31 @@ void StageScene::createPhysics()
     contactListener = new ContactListener();
     world->SetContactListener(contactListener);
 
-    // create edges around the entire screen
+    // create collision wall and ground
     b2BodyDef groundBodyDef;
     groundBodyDef.position.Set(0, (66 / PTM_RATIO));
-
-    b2Body *groundBody = world->CreateBody(&groundBodyDef);
-    b2EdgeShape groundEdge;
-    b2FixtureDef boxShapeDef;
-    boxShapeDef.shape = &groundEdge;
-
-    // wall definitions
-    groundEdge.Set(b2Vec2(0,0), b2Vec2(visibleSize.width/PTM_RATIO, 0));
-    groundBody->CreateFixture(&boxShapeDef);
+    b2Body *_groundBody;
+    _groundBody = world->CreateBody(&groundBodyDef);
+    
+    b2EdgeShape groundBox;
+    b2FixtureDef groundBoxDef;
+    groundBoxDef.shape = &groundBox;
+    
+    b2Fixture *_bottomFixture;
+    
+    groundBox.Set(b2Vec2(0,0), b2Vec2(visibleSize.width/PTM_RATIO, 0));
+    _bottomFixture = _groundBody->CreateFixture(&groundBoxDef);
+    
+    groundBox.Set(b2Vec2(0,0), b2Vec2(0, visibleSize.height/PTM_RATIO));
+    _groundBody->CreateFixture(&groundBoxDef);
+    
+    groundBox.Set(b2Vec2(0, visibleSize.height/PTM_RATIO), b2Vec2(visibleSize.width/PTM_RATIO,
+                                                              visibleSize.height/PTM_RATIO));
+    _groundBody->CreateFixture(&groundBoxDef);
+    
+    groundBox.Set(b2Vec2(visibleSize.width/PTM_RATIO, visibleSize.height/PTM_RATIO),
+                  b2Vec2(visibleSize.width/PTM_RATIO, 0));
+    _groundBody->CreateFixture(&groundBoxDef);    
 }
 
 void StageScene::setHUDLayer(Layer *layer)

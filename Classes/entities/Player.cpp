@@ -69,7 +69,7 @@ bool Player::init(Layer *layer, b2World *world)
     bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(sprite->getPositionX() /PTM_RATIO, sprite->getPositionY()/PTM_RATIO);
     bodyDef.userData = this;
-    bodyDef.fixedRotation = false;
+    bodyDef.fixedRotation = true;
     body = world->CreateBody(&bodyDef);
     
     b2PolygonShape shape;
