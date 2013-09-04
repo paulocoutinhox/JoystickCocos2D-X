@@ -7,18 +7,22 @@ Scene* StageScene::scene()
     Scene *scene = Scene::create();
 
     Layer *hudLayer = Layer::create();
-    scene->addChild(hudLayer, 1);
+    scene->addChild(hudLayer, 2);
+    
+    ParallaxScrollNode *backgroundLayer = ParallaxScrollNode::create();
+    scene->addChild(backgroundLayer, 0);
 
-    StageScene *layer = StageScene::createWithHUD(hudLayer);
-    scene->addChild(layer, 0);
+    StageScene *layer = StageScene::createWithHUDAndBackGround(hudLayer, backgroundLayer);
+    scene->addChild(layer, 1);
     
     return scene;
 }
 
-StageScene *StageScene::createWithHUD(Layer *hudLayer)
+StageScene *StageScene::createWithHUDAndBackGround(Layer *hudLayer, ParallaxScrollNode *backgroundLayer)
 {
     StageScene *object = new StageScene();
     object->setHUDLayer(hudLayer);
+    object->setBackgroundLayer(backgroundLayer);
     
     if (object && object->init())
     {
@@ -43,6 +47,9 @@ bool StageScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
     
+    // create world/stage size
+    worldSize = Size(2000, visibleSize.height);
+    
     // create bottom label
     LabelTTF* label = LabelTTF::create("Joystick Cocos2D-X Version 3", "Arial", 12);
     
@@ -51,10 +58,10 @@ bool StageScene::init()
 
     hudLayer->addChild(label, 1);
 
-    // add game background
-    Sprite* backgroundSprite = Sprite::create("BackgroundGame.png");
-    backgroundSprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-    addChild(backgroundSprite, 0);
+    // add parallax background
+    Sprite *backgroundSprite1 = Sprite::create("BackgroundGame.png");
+    Sprite *backgroundSprite2 = Sprite::create("BackgroundGame.png");
+    backgroundLayer->addInfiniteScrollXWithZ(0, Point(1.0f, 1.0f), Point(0,0), backgroundSprite1, backgroundSprite2, NULL);
     
     // add joystick
     int joystickOffset = 10;
@@ -97,7 +104,7 @@ bool StageScene::init()
     addChild(player->getBatchNode());
     
     // camera follow the player
-    runAction(Follow::create(player->getSprite(), Rect(0, 0, backgroundSprite->getContentSize().width, backgroundSprite->getContentSize().height)));
+    runAction(Follow::create(player->getSprite(), Rect(0, 0, backgroundSprite1->getContentSize().width, backgroundSprite1->getContentSize().height)));
     
     // rest of framework init process
     scheduleUpdate();
@@ -150,6 +157,10 @@ void StageScene::update(float dt)
             }
         }
     }
+    
+    // update the background parallax
+    //backgroundLayer->updateWithVelocity(Point(-2.0f, 0), dt);
+    //backgroundLayer->updateWithXPosition(-player->getSprite()->getPosition().x, dt);
 }
 
 void StageScene::updatePhysics(float dt)
@@ -159,8 +170,6 @@ void StageScene::updatePhysics(float dt)
 
 void StageScene::createPhysics()
 {
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-
     // world
     b2Vec2 gravity = b2Vec2(0.0f, -10.0f);
     world = new b2World(gravity);
@@ -181,22 +190,27 @@ void StageScene::createPhysics()
     
     b2Fixture *_bottomFixture;
     
-    groundBox.Set(b2Vec2(0,0), b2Vec2(visibleSize.width/PTM_RATIO, 0));
+    groundBox.Set(b2Vec2(0,0), b2Vec2(worldSize.width/PTM_RATIO, 0));
     _bottomFixture = _groundBody->CreateFixture(&groundBoxDef);
     
-    groundBox.Set(b2Vec2(0,0), b2Vec2(0, visibleSize.height/PTM_RATIO));
+    groundBox.Set(b2Vec2(0,0), b2Vec2(0, worldSize.height/PTM_RATIO));
     _groundBody->CreateFixture(&groundBoxDef);
     
-    groundBox.Set(b2Vec2(0, visibleSize.height/PTM_RATIO), b2Vec2(visibleSize.width/PTM_RATIO,
-                                                              visibleSize.height/PTM_RATIO));
+    groundBox.Set(b2Vec2(0, worldSize.height/PTM_RATIO), b2Vec2(worldSize.width/PTM_RATIO,
+                                                              worldSize.height/PTM_RATIO));
     _groundBody->CreateFixture(&groundBoxDef);
     
-    groundBox.Set(b2Vec2(visibleSize.width/PTM_RATIO, visibleSize.height/PTM_RATIO),
-                  b2Vec2(visibleSize.width/PTM_RATIO, 0));
+    groundBox.Set(b2Vec2(worldSize.width/PTM_RATIO, worldSize.height/PTM_RATIO),
+                  b2Vec2(worldSize.width/PTM_RATIO, 0));
     _groundBody->CreateFixture(&groundBoxDef);    
 }
 
 void StageScene::setHUDLayer(Layer *layer)
 {
     hudLayer = layer;
+}
+
+void StageScene::setBackgroundLayer(ParallaxScrollNode *layer)
+{
+    backgroundLayer = layer;
 }

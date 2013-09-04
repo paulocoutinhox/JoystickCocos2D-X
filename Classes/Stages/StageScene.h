@@ -9,6 +9,8 @@
 #include "../SneakyInput/SneakyJoystickSkinnedBase.h"
 #include "../Entities/Player.h"
 #include "../ContactListener.h"
+#include "../Extras/ParallaxScrollNode.h"
+#include "../Extras/ParallaxNodeExtras.h"
 
 class StageScene : public cocos2d::Layer
 {
@@ -19,7 +21,8 @@ public:
     static cocos2d::Scene* scene();
     void update(float dt);
     void setHUDLayer(Layer *layer);
-    static StageScene *createWithHUD(Layer *hudLayer);
+    void setBackgroundLayer(ParallaxScrollNode *layer);
+    static StageScene *createWithHUDAndBackGround(Layer *hudLayer, ParallaxScrollNode *backgroundLayer);
 
 private:
 
@@ -29,7 +32,9 @@ private:
     SneakyJoystick *leftJoystick;
     SneakyButton *action1Button;
     cocos2d::Layer *hudLayer;
-
+    ParallaxScrollNode *backgroundLayer;
+    cocos2d::Size worldSize;
+    
     void updatePhysics(float dt);
     void createPhysics();
 };
