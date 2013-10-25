@@ -36,7 +36,7 @@
 		// create the window
 		// note that using NSResizableWindowMask causes the window to be a little
 		// smaller and therefore ipad graphics are not loaded
-        NSRect rect = NSMakeRect(200, 200, 480, 320);
+        NSRect rect = NSMakeRect(0, 0, 1024, 768);
 		window = [[NSWindow alloc] initWithContentRect:rect
 			styleMask:( NSClosableWindowMask | NSTitledWindowMask )
 			backing:NSBackingStoreBuffered
@@ -60,7 +60,7 @@
 		[window setContentView:glView];
 		[window setTitle:@"JoystickCocos2D"];
 		[window makeKeyAndOrderFront:self];
-		[window setAcceptsMouseMovedEvents:NO];
+		[window setAcceptsMouseMovedEvents:YES];
 
 		cocos2d::Application::getInstance()->run();
 	}

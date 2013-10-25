@@ -9,7 +9,7 @@ class CCPointObject  : CCObject
 
 ParallaxNodeExtras::ParallaxNodeExtras()
 {
-    ParallaxNode::ParallaxNode() ; // call parent constructor
+    ParallaxNode() ; // call parent constructor
 }
 
 ParallaxNodeExtras * ParallaxNodeExtras::node()

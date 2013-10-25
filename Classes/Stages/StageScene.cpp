@@ -48,7 +48,7 @@ bool StageScene::init()
     Point origin = Director::getInstance()->getVisibleOrigin();
     
     // create world/stage size
-    worldSize = Size(2000, visibleSize.height);
+    worldSize = Size(1000, visibleSize.height);
     
     // create bottom label
     LabelTTF* label = LabelTTF::create("Joystick Cocos2D-X Version 3", "Arial", 12);

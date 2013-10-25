@@ -26,6 +26,9 @@
 		1AFAF8C416D3884900DB1158 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C116D3884900DB1158 /* CloseSelected.png */; };
 		1AFAF8C516D3884900DB1158 /* HelloWorld.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C216D3884900DB1158 /* HelloWorld.png */; };
 		1AFAF8CA16D3886000DB1158 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */; };
+		3A5421C217DFCAF900D0BB3A /* ParallaxNodeExtras.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5421BC17DFCAF900D0BB3A /* ParallaxNodeExtras.cpp */; };
+		3A5421C317DFCAF900D0BB3A /* ParallaxScrollNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5421BE17DFCAF900D0BB3A /* ParallaxScrollNode.cpp */; };
+		3A5421C417DFCAF900D0BB3A /* ParallaxScrollOffset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5421C017DFCAF900D0BB3A /* ParallaxScrollOffset.cpp */; };
 		3A5883F717D01F8E00577F80 /* ContactListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5883EB17D01F8E00577F80 /* ContactListener.cpp */; };
 		3A5883F817D01F8E00577F80 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5883EE17D01F8E00577F80 /* Entity.cpp */; };
 		3A5883F917D01F8E00577F80 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A5883F017D01F8E00577F80 /* Player.cpp */; };
@@ -199,6 +202,12 @@
 		1AFAF8C616D3886000DB1158 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = ../Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		1AFAF8C716D3886000DB1158 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../Classes/AppDelegate.h; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* JoystickCocos2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoystickCocos2D.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A5421BC17DFCAF900D0BB3A /* ParallaxNodeExtras.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParallaxNodeExtras.cpp; sourceTree = "<group>"; };
+		3A5421BD17DFCAF900D0BB3A /* ParallaxNodeExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxNodeExtras.h; sourceTree = "<group>"; };
+		3A5421BE17DFCAF900D0BB3A /* ParallaxScrollNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParallaxScrollNode.cpp; sourceTree = "<group>"; };
+		3A5421BF17DFCAF900D0BB3A /* ParallaxScrollNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxScrollNode.h; sourceTree = "<group>"; };
+		3A5421C017DFCAF900D0BB3A /* ParallaxScrollOffset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParallaxScrollOffset.cpp; sourceTree = "<group>"; };
+		3A5421C117DFCAF900D0BB3A /* ParallaxScrollOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallaxScrollOffset.h; sourceTree = "<group>"; };
 		3A5883EB17D01F8E00577F80 /* ContactListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContactListener.cpp; path = ../Classes/ContactListener.cpp; sourceTree = "<group>"; };
 		3A5883EC17D01F8E00577F80 /* ContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactListener.h; path = ../Classes/ContactListener.h; sourceTree = "<group>"; };
 		3A5883EE17D01F8E00577F80 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
@@ -264,6 +273,7 @@
 				3A5883EB17D01F8E00577F80 /* ContactListener.cpp */,
 				3A5883EC17D01F8E00577F80 /* ContactListener.h */,
 				3A5883ED17D01F8E00577F80 /* Entities */,
+				3A5421BB17DFCAF900D0BB3A /* Extras */,
 				3AB7CAEF17C8BD5A00704805 /* SneakyInput */,
 				3A5883F217D01F8E00577F80 /* Stages */,
 			);
@@ -328,6 +338,20 @@
 				15C64832165F3AFD007D4F18 /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A5421BB17DFCAF900D0BB3A /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				3A5421BC17DFCAF900D0BB3A /* ParallaxNodeExtras.cpp */,
+				3A5421BD17DFCAF900D0BB3A /* ParallaxNodeExtras.h */,
+				3A5421BE17DFCAF900D0BB3A /* ParallaxScrollNode.cpp */,
+				3A5421BF17DFCAF900D0BB3A /* ParallaxScrollNode.h */,
+				3A5421C017DFCAF900D0BB3A /* ParallaxScrollOffset.cpp */,
+				3A5421C117DFCAF900D0BB3A /* ParallaxScrollOffset.h */,
+			);
+			name = Extras;
+			path = ../Classes/Extras;
 			sourceTree = "<group>";
 		};
 		3A5883ED17D01F8E00577F80 /* Entities */ = {
@@ -604,6 +628,9 @@
 				3A5883F917D01F8E00577F80 /* Player.cpp in Sources */,
 				3A5883FA17D01F8E00577F80 /* StageScene.cpp in Sources */,
 				3A5883FB17D01F8E00577F80 /* StageScene1.cpp in Sources */,
+				3A5421C217DFCAF900D0BB3A /* ParallaxNodeExtras.cpp in Sources */,
+				3A5421C317DFCAF900D0BB3A /* ParallaxScrollNode.cpp in Sources */,
+				3A5421C417DFCAF900D0BB3A /* ParallaxScrollOffset.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

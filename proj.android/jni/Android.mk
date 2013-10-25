@@ -16,8 +16,11 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 				   ../../Classes/SneakyInput/SneakyJoystickSkinnedBase.cpp \
                    ../../Classes/Entities/Entity.cpp \
                    ../../Classes/Entities/Player.cpp \
-                   ../../Classes/ContactListener.cpp
-
+                   ../../Classes/ContactListener.cpp \
+				   ../../Classes/Extras/ParallaxNodeExtras.cpp \
+				   ../../Classes/Extras/ParallaxScrollNode.cpp \
+				   ../../Classes/Extras/ParallaxScrollOffset.cpp
+				   				   
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_static

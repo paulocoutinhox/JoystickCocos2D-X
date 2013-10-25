@@ -27,3 +27,9 @@ Classes/ContactListener.h
 Classes/ContactListener.cpp
 Classes/Entities/Entity.h
 Classes/Entities/Entity.cpp
+Classes/Extras/ParallaxNodeExtras.cpp
+Classes/Extras/ParallaxScrollNode.cpp
+Classes/Extras/ParallaxScrollOffset.cpp
+Classes/Extras/ParallaxNodeExtras.h
+Classes/Extras/ParallaxScrollNode.h
+Classes/Extras/ParallaxScrollOffset.h
