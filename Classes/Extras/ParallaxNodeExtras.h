@@ -10,7 +10,7 @@ class ParallaxNodeExtras : public ParallaxNode
 public:
     ParallaxNodeExtras();
     static ParallaxNodeExtras * node() ;
-    void incrementOffset(CCPoint offset,CCNode* node) ;
+    void incrementOffset(cocos2d::Vec2 offset,cocos2d::Node* node) ;
 };
 
 #endif

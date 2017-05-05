@@ -22,10 +22,10 @@ bool Player::init(Layer *layer, b2World *world)
     Point origin = Director::getInstance()->getVisibleOrigin();
     
     // node and spite
-    batchNode = SpriteBatchNode::create("orc/Orc.pvr.ccz");
+    batchNode = SpriteBatchNode::create("res/characters/orc/Orc.pvr.ccz");
     
-    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("orc/Orc.plist");
-    sprite = CCSprite::createWithSpriteFrameName("Orc_move_right0001.png");
+    SpriteFrameCache::getInstance()->addSpriteFramesWithFile("res/characters/orc/Orc.plist");
+    sprite = cocos2d::Sprite::createWithSpriteFrameName("Orc_move_right0001.png");
     
     sprite->setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
     
@@ -42,7 +42,7 @@ bool Player::init(Layer *layer, b2World *world)
     animationDefault->setDelayPerUnit(1.0 / 1);
     animationDefault->setRestoreOriginalFrame(true);
     
-    animateDefault = CCAnimate::create(animationDefault);
+    animateDefault = cocos2d::Animate::create(animationDefault);
     actionStateDefault = RepeatForever::create(animateDefault);
     actionStateDefault->retain();
 
@@ -59,7 +59,7 @@ bool Player::init(Layer *layer, b2World *world)
     animationMoving->setDelayPerUnit(0.04f);
     animationMoving->setRestoreOriginalFrame(true);
     
-    animateMoving = CCAnimate::create(animationMoving);
+    animateMoving = cocos2d::Animate::create(animationMoving);
     actionStateMoving = RepeatForever::create(animateMoving);
     actionStateMoving->retain();
 
@@ -124,7 +124,7 @@ void Player::move(Point velocity)
         changeDirection(2);
         
         impulse = b2Vec2(0.25f * body->GetMass(), 0.0f);
-        body->ApplyLinearImpulse(impulse, body->GetWorldCenter());
+        body->ApplyLinearImpulse(impulse, body->GetWorldCenter(), true);
     }
     else if (velocity.x < 0)
     {
@@ -133,7 +133,7 @@ void Player::move(Point velocity)
         changeDirection(1);
         
         impulse = b2Vec2(-0.25f * body->GetMass(), 0.0f);
-        body->ApplyLinearImpulse(impulse, body->GetWorldCenter());
+        body->ApplyLinearImpulse(impulse, body->GetWorldCenter(), true);
     }
     else
     {
@@ -175,7 +175,7 @@ void Player::actionButtonPressed(int button)
 {
     if (button == 1)
     {
-        body->ApplyLinearImpulse(b2Vec2(0, body->GetMass() * 3), body->GetWorldCenter());
+        body->ApplyLinearImpulse(b2Vec2(0, body->GetMass() * 3), body->GetWorldCenter(), true);
     }
 }
 
@@ -183,7 +183,7 @@ void Player::changeDirection(int direction)
 {
     if (this->direction != direction && direction == 1)
     {
-        sprite->setFlipX(true);
+        sprite->setFlippedX(true);
         this->direction = direction;
         
         if (state == 2)
@@ -193,7 +193,7 @@ void Player::changeDirection(int direction)
     }
     else if (this->direction != direction && direction == 2)
     {
-        sprite->setFlipX(false);
+        sprite->setFlippedX(false);
         this->direction = direction;
         
         if (state == 2)

@@ -50,7 +50,7 @@ With this, anyone can start your project and study the basic concepts.
 Screenshot
 ===============
 
-![Screenshot 480x320](Design/screenshot_480_320.png)
+![Screenshot 480x320](Extras/screenshots/screenshot_480_320.png)
 
 
 Credits

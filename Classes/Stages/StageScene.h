@@ -8,7 +8,7 @@
 #include "../SneakyInput/SneakyJoystick.h"
 #include "../SneakyInput/SneakyJoystickSkinnedBase.h"
 #include "../Entities/Player.h"
-#include "../ContactListener.h"
+#include "../Extras/ContactListener.h"
 #include "../Extras/ParallaxScrollNode.h"
 #include "../Extras/ParallaxNodeExtras.h"
 

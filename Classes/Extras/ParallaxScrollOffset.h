@@ -4,23 +4,23 @@
 #include "cocos2d.h"
 using namespace cocos2d;
 
-class ParallaxScrollOffset : public cocos2d::CCLayer
+class ParallaxScrollOffset : public cocos2d::Layer
 {
 public:
     virtual bool init();
     CREATE_FUNC(ParallaxScrollOffset);
 
-    CC_SYNTHESIZE(CCPoint, scrollOffset, ScrollOffset);
-    CC_SYNTHESIZE(CCPoint, origPosition, OrigPosition);
-    CC_SYNTHESIZE(CCPoint, relVelocity, RelVelocity);
-    CC_SYNTHESIZE(CCPoint, ratio, Ratio);
-    CC_SYNTHESIZE(CCPoint, buffer, Buffer);
-    CC_SYNTHESIZE(CCNode*, theChild, TheChild);
+    CC_SYNTHESIZE(cocos2d::Vec2, scrollOffset, ScrollOffset);
+    CC_SYNTHESIZE(cocos2d::Vec2, origPosition, OrigPosition);
+    CC_SYNTHESIZE(cocos2d::Vec2, relVelocity, RelVelocity);
+    CC_SYNTHESIZE(cocos2d::Vec2, ratio, Ratio);
+    CC_SYNTHESIZE(cocos2d::Vec2, buffer, Buffer);
+    CC_SYNTHESIZE(cocos2d::Node*, theChild, TheChild);
     
-    static ParallaxScrollOffset* scrollWithNode(CCNode *node, CCPoint r, CCPoint p, CCPoint s);
-    static ParallaxScrollOffset* scrollWithNode(CCNode *node, CCPoint r, CCPoint p, CCPoint s, CCPoint v);
-    ParallaxScrollOffset* initWithNode(CCNode *node, CCPoint r, CCPoint p, CCPoint s, CCPoint v);
-    ParallaxScrollOffset* initWithNode(CCNode *node, CCPoint r, CCPoint p, CCPoint s);
+    static ParallaxScrollOffset* scrollWithNode(cocos2d::Node *node, cocos2d::Vec2 r, cocos2d::Vec2 p, cocos2d::Vec2 s);
+    static ParallaxScrollOffset* scrollWithNode(cocos2d::Node *node, cocos2d::Vec2 r, cocos2d::Vec2 p, cocos2d::Vec2 s, cocos2d::Vec2 v);
+    ParallaxScrollOffset* initWithNode(cocos2d::Node *node, cocos2d::Vec2 r, cocos2d::Vec2 p, cocos2d::Vec2 s, cocos2d::Vec2 v);
+    ParallaxScrollOffset* initWithNode(cocos2d::Node *node, cocos2d::Vec2 r, cocos2d::Vec2 p, cocos2d::Vec2 s);
 };
 
 #endif

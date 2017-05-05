@@ -25,7 +25,7 @@ SneakyJoystickSkinnedBase::~SneakyJoystickSkinnedBase()
 bool SneakyJoystickSkinnedBase::init()
 {
 	bool pRet = false;
-	if(CCLayer::init()){
+	if(cocos2d::Layer::init()){
 		this->backgroundSprite = NULL;
 
 		this->thumbSprite = NULL;
@@ -46,7 +46,7 @@ void SneakyJoystickSkinnedBase::updatePositions(float delta)
 
 void SneakyJoystickSkinnedBase::setContentSize(Size s)
 {
-	CCLayer::setContentSize(s);
+	cocos2d::Layer::setContentSize(s);
 	backgroundSprite->setContentSize(s);
 	//joystick.joystickRadius = s.width/2;
 }

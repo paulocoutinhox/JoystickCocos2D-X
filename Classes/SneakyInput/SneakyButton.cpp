@@ -2,20 +2,38 @@
 
 using namespace cocos2d;
 
-void SneakyButton::onEnterTransitionDidFinish()
+SneakyButton::SneakyButton() : onFire(nullptr)
 {
-	Director::getInstance()->getTouchDispatcher()->addTargetedDelegate(this, 1, true);
+    
 }
 
-void SneakyButton::onExit()
+bool SneakyButton::isTouchEnabled() const
 {
-	Director::getInstance()->getTouchDispatcher()->removeDelegate(this);
+    return _touchListener != nullptr;
+}
+
+void SneakyButton::setTouchEnabled(bool enabled)
+{
+    _eventDispatcher->removeEventListener(_touchListener);
+    _touchListener = nullptr;
+    
+    if (enabled)
+    {
+        _touchListener = EventListenerTouchOneByOne::create();
+        _touchListener->setSwallowTouches(true);
+        _touchListener->onTouchBegan = CC_CALLBACK_2(SneakyButton::ccTouchBegan, this);
+        _touchListener->onTouchMoved = CC_CALLBACK_2(SneakyButton::ccTouchMoved, this);
+        _touchListener->onTouchEnded = CC_CALLBACK_2(SneakyButton::ccTouchEnded, this);
+        _touchListener->onTouchCancelled = CC_CALLBACK_2(SneakyButton::ccTouchCancelled, this);
+        
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_touchListener, this);
+    }
 }
 
 bool SneakyButton::initWithRect(Rect rect)
 {
 	bool pRet = false;
-	//if(CCSprite::init()){
+	//if(cocos2d::Sprite::init()){
 		
 		bounds = Rect(0, 0, rect.size.width, rect.size.height);
 		center = Point(rect.size.width/2, rect.size.height/2);
@@ -28,6 +46,7 @@ bool SneakyButton::initWithRect(Rect rect)
 		rateLimit = 1.0f/120.0f;
 		
 		setPosition(rect.origin); //not sure about this
+        setTouchEnabled(true);
 		pRet = true;
 	//}
 	return pRet;
@@ -59,6 +78,9 @@ bool SneakyButton::ccTouchBegan(Touch *touch, Event *event)
 		float dSq = location.x*location.x + location.y*location.y;
 		if(radiusSq > dSq){
 			active = true;
+            if (onFire) {
+                this->onFire(this);
+            }
 			if (!isHoldable && !isToggleable){
 				value = 1;
 				this->schedule(schedule_selector(SneakyButton::limiter), rateLimit);
@@ -101,14 +123,4 @@ void SneakyButton::ccTouchEnded(Touch *touch, Event *event)
 void SneakyButton::ccTouchCancelled(Touch *touch, Event *event)
 {
 	this->ccTouchEnded(touch, event);
-}
-
-void SneakyButton::touchDelegateRelease()
-{
-	this->release();
-}
-
-void SneakyButton::touchDelegateRetain()
-{
-	this->retain();
 }

@@ -45,23 +45,25 @@ bool StageScene::init()
     }
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
+    Size winSize = Director::getInstance()->getWinSize();
     Point origin = Director::getInstance()->getVisibleOrigin();
     
-    // create world/stage size
-    worldSize = Size(1000, visibleSize.height);
-    
     // create bottom label
-    LabelTTF* label = LabelTTF::create("Joystick Cocos2D-X Version 3", "Arial", 12);
-    
-    label->setPosition(Point(origin.x + visibleSize.width/2,
-                            origin.y + label->getContentSize().height));
-
+    Label* label = Label::createWithSystemFont("Joystick Cocos2D-X Version 3.X", "Arial", 12);
+    label->setPosition(Point(origin.x + visibleSize.width/2, origin.y + visibleSize.height - label->getContentSize().height));
     hudLayer->addChild(label, 1);
 
     // add parallax background
-    Sprite *backgroundSprite1 = Sprite::create("BackgroundGame.png");
-    Sprite *backgroundSprite2 = Sprite::create("BackgroundGame.png");
+    Sprite *backgroundSprite1 = Sprite::create("res/stages/stage1/background.png");
+    backgroundSprite1->setContentSize(winSize);
+    
+    Sprite *backgroundSprite2 = Sprite::create("res/stages/stage1/background.png");
+    backgroundSprite2->setContentSize(winSize);
+    
     backgroundLayer->addInfiniteScrollXWithZ(0, Point(1.0f, 1.0f), Point(0,0), backgroundSprite1, backgroundSprite2, NULL);
+    
+    // create world/stage size
+    worldSize = Size(backgroundLayer->getContentSize().width, backgroundLayer->getContentSize().height);
     
     // add joystick
     int joystickOffset = 10;
@@ -76,8 +78,8 @@ bool StageScene::init()
     SneakyJoystickSkinnedBase *joystickBase = SneakyJoystickSkinnedBase::create();
     SneakyJoystick *joystick = new SneakyJoystick();
     joystick->initWithRect(joystickBaseDimensions);
-    joystickBase->setBackgroundSprite(CCSprite::create("joystick/dpadDown.png"));
-    joystickBase->setThumbSprite(CCSprite::create("joystick/joystickDown.png"));
+    joystickBase->setBackgroundSprite(cocos2d::Sprite::create("res/joystick/dpadDown.png"));
+    joystickBase->setThumbSprite(cocos2d::Sprite::create("res/joystick/joystickDown.png"));
     joystickBase->setJoystick(joystick);
     joystickBase->setPosition(joystickBasePosition);
     leftJoystick = joystickBase->getJoystick();
@@ -87,9 +89,9 @@ bool StageScene::init()
     SneakyButtonSkinnedBase *action1ButtonBase = SneakyButtonSkinnedBase::create();
     SneakyButton *button1 = new SneakyButton();
     button1->initWithRect(accelButtonDimensions);
-    action1ButtonBase->setDefaultSprite(CCSprite::create("joystick/action1Down.png"));
-    action1ButtonBase->setActivatedSprite(CCSprite::create("joystick/action1Down.png"));
-    action1ButtonBase->setPressSprite(CCSprite::create("joystick/action1Up.png"));
+    action1ButtonBase->setDefaultSprite(cocos2d::Sprite::create("res/joystick/action1Down.png"));
+    action1ButtonBase->setActivatedSprite(cocos2d::Sprite::create("res/joystick/action1Down.png"));
+    action1ButtonBase->setPressSprite(cocos2d::Sprite::create("res/joystick/action1Up.png"));
     action1ButtonBase->setButton(button1);
     action1ButtonBase->setPosition(accelButtonPosition);
     action1Button = action1ButtonBase->getButton();
@@ -105,6 +107,15 @@ bool StageScene::init()
     
     // camera follow the player
     runAction(Follow::create(player->getSprite(), Rect(0, 0, backgroundSprite1->getContentSize().width, backgroundSprite1->getContentSize().height)));
+    
+    //joystick listener
+    leftJoystick->onVelocityChanged = [=](SneakyJoystick* eventJoystick, Point oldValue, Point newValue){
+        cocos2d::log("Velocity x: %f y: %f", newValue.x, newValue.y);
+    };
+    
+    action1Button->onFire = [=](SneakyButton *button) {
+        cocos2d::log("Fire in the hole!!!");
+    };
     
     // rest of framework init process
     scheduleUpdate();
@@ -122,7 +133,6 @@ void StageScene::update(float dt)
     {
         player->update(dt);
         player->updateVelocity(leftJoystick->getVelocity());
-        
         if (action1Button->getIsActive())
         {
             player->actionButtonPressed(1);
@@ -159,8 +169,8 @@ void StageScene::update(float dt)
     }
     
     // update the background parallax
-    //backgroundLayer->updateWithVelocity(Point(-2.0f, 0), dt);
-    //backgroundLayer->updateWithXPosition(-player->getSprite()->getPosition().x, dt);
+    backgroundLayer->updateWithVelocity(Point(-2.0f, 0), dt);
+    backgroundLayer->updateWithXPosition(-player->getSprite()->getPosition().x, dt);
 }
 
 void StageScene::updatePhysics(float dt)
@@ -173,14 +183,14 @@ void StageScene::createPhysics()
     // world
     b2Vec2 gravity = b2Vec2(0.0f, -10.0f);
     world = new b2World(gravity);
-
+    
     // contact listener
     contactListener = new ContactListener();
     world->SetContactListener(contactListener);
 
     // create collision wall and ground
     b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0, (66 / PTM_RATIO));
+    groundBodyDef.position.Set(0, (20 / PTM_RATIO));
     b2Body *_groundBody;
     _groundBody = world->CreateBody(&groundBodyDef);
     

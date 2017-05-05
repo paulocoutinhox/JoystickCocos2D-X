@@ -34,7 +34,7 @@ SneakyButtonSkinnedBase::~SneakyButtonSkinnedBase()
 bool SneakyButtonSkinnedBase::init() //Possible errors here
 {
 	bool pRet = false;
-	if(CCLayer::init()){
+	if(cocos2d::Layer::init()){
 		this->defaultSprite = NULL;
 		//defaultSprite->retain();
 		this->activatedSprite = NULL;
@@ -86,7 +86,7 @@ void SneakyButtonSkinnedBase::watchSelf(float delta) //Be Careful Here
 
 void SneakyButtonSkinnedBase::setContentSize(Size s)
 {
-	CCLayer::setContentSize(s);
+	cocos2d::Layer::setContentSize(s);
 	defaultSprite->setContentSize(s);
 	//button->setRadius(s.width/2);
 }

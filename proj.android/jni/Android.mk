@@ -2,38 +2,31 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := cocos2dcpp_shared
+$(call import-add-path,$(LOCAL_PATH)/../../cocos2d)
+$(call import-add-path,$(LOCAL_PATH)/../../cocos2d/external)
+$(call import-add-path,$(LOCAL_PATH)/../../cocos2d/cocos)
+$(call import-add-path,$(LOCAL_PATH)/../../cocos2d/cocos/audio/include)
 
-LOCAL_MODULE_FILENAME := libcocos2dcpp
+LOCAL_MODULE := MyGame_shared
 
-LOCAL_SRC_FILES := hellocpp/main.cpp \
-                   ../../Classes/AppDelegate.cpp \
-                   ../../Classes/Stages/StageScene.cpp \
-                   ../../Classes/Stages/StageScene1.cpp \
-                   ../../Classes/SneakyInput/SneakyButton.cpp \
-                   ../../Classes/SneakyInput/SneakyButtonSkinnedBase.cpp \
-                   ../../Classes/SneakyInput/SneakyJoystick.cpp \
-				   ../../Classes/SneakyInput/SneakyJoystickSkinnedBase.cpp \
-                   ../../Classes/Entities/Entity.cpp \
-                   ../../Classes/Entities/Player.cpp \
-                   ../../Classes/ContactListener.cpp \
-				   ../../Classes/Extras/ParallaxNodeExtras.cpp \
-				   ../../Classes/Extras/ParallaxScrollNode.cpp \
-				   ../../Classes/Extras/ParallaxScrollOffset.cpp
-				   				   
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
+LOCAL_MODULE_FILENAME := libMyGame
 
-LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_static
-LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static
-LOCAL_WHOLE_STATIC_LIBRARIES += box2d_static
-LOCAL_WHOLE_STATIC_LIBRARIES += chipmunk_static
-LOCAL_WHOLE_STATIC_LIBRARIES += cocos_extension_static
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../Classes
+FILE_LIST := $(wildcard $(LOCAL_PATH)/../../../Classes/*.cpp)
+LOCAL_SRC_FILES += $(FILE_LIST:$(LOCAL_PATH)/%=%)
+
+# _COCOS_HEADER_ANDROID_BEGIN
+# _COCOS_HEADER_ANDROID_END
+
+
+LOCAL_STATIC_LIBRARIES := cocos2dx_static
+
+# _COCOS_LIB_ANDROID_BEGIN
+# _COCOS_LIB_ANDROID_END
 
 include $(BUILD_SHARED_LIBRARY)
 
-$(call import-module,cocos2dx)
-$(call import-module,cocos2dx/platform/third_party/android/prebuilt/libcurl)
-$(call import-module,CocosDenshion/android)
-$(call import-module,extensions)
-$(call import-module,external/Box2D)
-$(call import-module,external/chipmunk)
+$(call import-module,.)
+
+# _COCOS_LIB_IMPORT_ANDROID_BEGIN
+# _COCOS_LIB_IMPORT_ANDROID_END
